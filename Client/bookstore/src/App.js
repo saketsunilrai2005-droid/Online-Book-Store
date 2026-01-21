@@ -3,12 +3,12 @@ import './App.css';
 import "./index.css";
 
 // Components
-import { BookList } from './Components/product/bookList';
+// import { BookList } from './Components/product/bookList';
 import { BookDetails } from './Components/product/bookDetails';
 import { Navbar } from './Components/common/navbar';
-
+import { Home } from "./Pages/home";
 // Data
-import { sampleBooks } from "./book.js";
+// import { sampleBooks } from "./book.js";
 
 const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -16,20 +16,15 @@ const App = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar cartCount={0} />
-      
-      <main className="p-5 md:p-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Directly passing the imported sampleBooks */}
-          <BookList books={sampleBooks} onBookSelect={setSelectedBook} />
-          
+          {/* Home page Added */}
+          <Home onBookSelect={setSelectedBook} />
+          {/* BookDetails */}
           {selectedBook && (
             <BookDetails 
               book={selectedBook} 
               onClose={() => setSelectedBook(null)} 
             />
           )}
-        </div>
-      </main>
     </div>
   );
 };
