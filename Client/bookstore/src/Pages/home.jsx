@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookList } from '../Components/product/bookList.jsx';
-import { sampleBooks } from "../../src/book.js";
+import { sampleBooks } from "../book.js";
 
 export const Home = ({ onBookSelect }) => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Navbar = ({ cartCount = 0, onCategoryChange }) => {
+export const Navbar = ({ cartCount = 0, onCategoryChange, onCartClick }) => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -19,6 +19,7 @@ export const Navbar = ({ cartCount = 0, onCategoryChange }) => {
   ];
 
   return (
+    
     <nav className="sticky top-0 z-[100] bg-white/90 backdrop-blur-xl border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -92,7 +93,9 @@ export const Navbar = ({ cartCount = 0, onCategoryChange }) => {
 
           {/* User & Cart Actions */}
           <div className="flex items-center gap-1 sm:gap-3">
-            <button className="relative p-2.5 text-slate-600 hover:bg-slate-50 rounded-2xl transition-all">
+            <button 
+              onClick={onCartClick}
+              className="relative p-2.5 text-slate-600 hover:bg-slate-50 rounded-2xl transition-all">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
