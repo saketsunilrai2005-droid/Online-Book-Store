@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BookList } from '../Components/product/bookList.jsx';
 import { bookService } from '../Services/bookService';
 import { Loader } from '../Components/common/loader';
+import API_BASE_URL from '../apiConfig';
 
 export const Home = ({ onBookSelect, selectedCategory }) => {
   const [books, setBooks] = useState([]);
@@ -35,6 +36,7 @@ export const Home = ({ onBookSelect, selectedCategory }) => {
         <div className="bg-red-50 text-red-600 p-6 rounded-2xl border border-red-100">
           <p className="font-bold text-lg">Error loading books</p>
           <p>{error}</p>
+          <p className="text-xs text-gray-500 mt-2">API: {API_BASE_URL}</p>
         </div>
       </div>
     );
